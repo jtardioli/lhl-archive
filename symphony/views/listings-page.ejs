@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links -->
+  <link rel="shortcut icon" type="image/jpg" href="https://i.imgur.com/Ex2x6gt.png"/>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+
+  <link rel="stylesheet" href="/styles/mainpage.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/2331eaaccf.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/navAnimation.js"></script>
+
+
+<title>Symphony - Listings</title>
+</head>
+<body>
+  <%- include('partials/_nav') %>
+
+ <div class="content">
+  <form method = "POST" action = "/">
+    <div class="search">
+      <button class="search-btn" type="submit">
+        
+        Search
+      </button>
+      <input placeholder="What are you searching for..." name="search" type="search" id="form1" />
+    </div>
+  </form>
+
+
+
+    <div class="filter-box">
+      <a href="/listings">
+        <div class="listings">
+          <i class="fas fa-store"></i>
+          <p>All Listings</p>
+        </div>
+      </a>
+   
+
+      <form method = "POST" action = "/filter">
+        <div class="filter">
+          <select class="select" name="values">
+            <option disabled selected value="0">Filters</option>
+            <option value="0">Price: low to high</option>
+            <option value="1">Price: high to low</option>
+          </select>
+          <button class="filter-btn" type="submit" title="Submit">Go</button>
+        </div>
+      </form>
+
+
+    </div>
+
+
+
+  <ul class="cards">
+    <% for (let i of items){%>
+  <a class="card-link" href="/items/my-item/<%= i.id %>">
+    <li class="card">
+      <img class="card-img" src="<%=i.image%>" alt="">
+
+      <div class="card-content">
+        <div class="price">
+          <i class="fas fa-money-bill-wave"></i>
+          <p >$<%=i.price%></p>
+        </div>
+
+        <h5 ><%=i.name%></h5>
+      </div>
+
+      <div class="card-actions">
+        <form method="POST" action="/chat/create/<%= i.id %>" >
+          <button class="btn-mini">
+            <i class="far fa-comment-alt"></i>
+          </button>
+        </form>
+        <form method="POST" action="/favourites/<%= i.id %>" >
+        <button class="btn-mini" type="submit">
+        <i class="far fa-heart"></i>
+        </button>
+      </form>
+      </div>
+    </li>
+  </a>
+    <% }%>
+  </ul>
+
+</div>
+
+
+
+
+
+<%- include('partials/_footer') %>
+</body>
+
+</html>

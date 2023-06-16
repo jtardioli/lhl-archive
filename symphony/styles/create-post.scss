@@ -1,0 +1,86 @@
+@use 'vars/vars' as color;
+
+body {
+  min-height: 100vh;
+}
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 5px 5px gray;
+  width:fit-content;
+  padding: 20px;
+  border: 1px solid color.$main-green;
+  border-radius: 5px;
+}
+
+.choose-image {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin: 1rem;
+    width: 80%;
+    height: 40px;
+}
+
+.create-post {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  font-size: 50px;
+  font-weight: 530;
+}
+
+#item-description {
+  width: 500px;
+  height: 200px;
+  border: color.$main-green 1px solid;
+  border-radius: 5px;
+  padding: 4px;
+  padding: 6px 12px;
+}
+#item-title {
+  width: 500px;
+  height: 50px;
+
+  border: color.$main-green 1px solid;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: 4px;
+  padding: 6px 12px;
+}
+.actions {
+  width: fit-content;
+  margin-right: 1rem;
+ background-color: black;
+ color: color.$main-yellow;
+ height: 30px;
+ width: 110px;
+ border: none;
+ border-radius: 5px;
+ transition: all .2s ease-in-out;
+ box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
+ letter-spacing: 1px;
+ font-size: 0.9rem;
+ margin: 0.2rem;
+}
+.actions:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
+}
+
+.actions:active {
+   transform: scale(1);
+}
+
+#price1 {
+  margin-top: 1rem;
+  height: 40px;
+  padding: 6px 12px;
+}

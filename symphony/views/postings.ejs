@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/mainpage.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/mypostings.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/2331eaaccf.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/navAnimation.js"></script>
+
+
+<title>Symphony</title>
+</head>
+<body>
+  <%- include('partials/_nav') %>
+  <div class="page-container">
+
+
+  <ul class="content">
+    <form method = "POST" action = "/searchpost">
+    <div class="search">
+      <button class="search-btn" type="submit">Search</button>
+      <input name="searchs" placeholder="What are you searching for..." type="search" id="form2" />
+    </form>
+    </div>
+    <h2 class="your-postings"> My Postings </h2>
+    <ul class="cards">
+      <% for (let i of items){%>
+        <% if(!i.is_sold){ %>
+          <a class="card-link" href="/items/my-item/<%= i.id %>">
+
+
+      <li class="card">
+        <img class="card-img" src="<%=i.image%>" alt="">
+        <div class="card-content">
+          <div class="price">
+            <i class="fas fa-money-bill-wave"></i>
+            <p >$<%=i.price%></p>
+          </div>
+
+          <h5 ><%=i.name%></h5>
+        </div>
+
+        <div class="card-actions">
+          <form method="POST" action="/sold/<%=i.id%>">
+            <button type = "submit" class="btn-mini">
+              <i class="fas fa-dollar-sign"></i>
+            </button>
+          </form>
+          <form method="POST" action="/delete/<%= i.id %>" >
+          <button class="btn-mini" type="submit">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </form>
+          </div>
+      </li>
+
+      <% } else {%>
+        <li class="card">
+          <div class="parent">
+            <img class="soldlist card-img" src="<%=i.image%>" alt="">
+            <img src="http://www.bforklift.ca/wp-content/uploads/2017/02/sold.png" class="over-img"/>
+        </div>
+
+          <div class="card-content">
+            <div class="price">
+              <i class="fas fa-money-bill-wave"></i>
+              <p >$<%=i.price%></p>
+            </div>
+
+            <h5 ><%=i.name%></h5>
+          </div>
+
+          <div class="card-actions">
+
+            <form method="POST" action="/delete/<%= i.id %>" >
+            <button class="btn-mini" type="submit">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </form>
+            </div>
+        </li>
+
+
+
+        <% }%>
+      </a>
+      <% }%>
+
+    </ul>
+
+  </div>
+
+</body>
+
+</html>

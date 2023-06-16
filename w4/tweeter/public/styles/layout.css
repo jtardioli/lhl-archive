@@ -1,0 +1,85 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+ /* font-family: 'Bungee', cursive;
+ font-family: 'Source Sans Pro', sans-serif; */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: #545149;
+  background-color: #f4f1ec;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+.view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  position: absolute;
+  top: 0;
+  width: 100%;
+  
+}
+
+ main {
+   display: flex;
+   flex-direction: column;
+   align-self: center;
+   justify-content: flex-start;
+   align-items: center;
+   width: 65%;
+   height: 100%;
+ }
+
+ @media only screen and (max-width: 535px) {
+  main {
+
+    width: 90%;
+    height: 100vh;
+  }
+ 
+ }
+
+ @media only screen and (min-width: 1095px) {
+  .view {
+    margin-top: 10vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start; 
+    position: static
+  }
+
+  main {
+    margin-top: 3vh;
+    width: 50%;
+    
+
+  }
+
+}
+ 
+
+
+
+
+ 

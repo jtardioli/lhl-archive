@@ -1,0 +1,84 @@
+@use 'variables'; 
+nav {
+  width: 100%;
+  top: 0;
+  background-color: none;
+  color: #FFFFFF;
+  height: 120px;
+  padding: 0 1.5em 0  1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  
+}
+nav span {
+  font-family: 'Bungee', cursive;
+  font-size: 1.5em;
+ }
+.go-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.go-down > i {
+color:rgb(223, 170, 25);
+position: relative;
+
+transition: all .4s ease-in-out; 
+}
+
+.go-down > i {
+  color:rgb(223, 170, 25);
+  animation: up-and-down 1.3s infinite ease-in-out;
+  transition: all .4s ease-in-out; 
+  z-index: 2;
+  }
+
+
+
+.nav-message {
+margin-bottom: 4px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+@keyframes up-and-down {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 6px;
+
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+ .go-down {
+   display: none
+ }
+ nav {
+  flex-direction: column;
+ }
+ nav span {
+  margin-top: 3vh;
+ }
+}
+ 
+
+@media only screen and (min-width: 1095px) {
+  nav {
+    position: sticky;
+    background-color: #4056A1;
+ 
+  }
+
+}
+ 

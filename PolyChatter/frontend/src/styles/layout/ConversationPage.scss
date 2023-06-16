@@ -1,0 +1,47 @@
+.chat-page-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.chat-box {
+  width: 100px;
+  height: 100px;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+}
+.chat-page-wrap form {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px -1.95px 2.6px;
+}
+
+.message-input {
+  width: 90%;
+  max-width: 90%;
+  max-height: 20vh;
+  overflow: scroll;
+  background-color: rgb(222, 222, 222);
+  border-radius: 30px;
+  padding: 12px;
+  padding-bottom: 0;
+  outline: none;
+}
+
+#send-icon {
+  color: rgb(201, 117, 60);
+  font-size: 2em;
+}
+
+.send-btn {
+  background-color: white;
+  border: none;
+  margin-left: 10px;
+}

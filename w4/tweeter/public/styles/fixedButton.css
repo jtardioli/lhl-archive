@@ -1,0 +1,31 @@
+.fixed-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: rgb(223, 170, 25);;
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  box-shadow: 3px 3px 10px #44424283;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: 1;
+  
+}
+
+.fa-angle-double-up {
+  transform: scale(1.4);
+}
+.fixed-button:hover {
+  transform: scale(1.08);
+  box-shadow: 3px 6px 10px #44424283;
+}
+
+.fixed-button:active {
+  transform: scale(1.03);
+  box-shadow: 3px 3px 10px #44424283;
+}
